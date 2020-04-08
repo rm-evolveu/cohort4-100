@@ -12,6 +12,30 @@ const playground = {
         }
 
         return response
+    },
+
+    calc: {
+
+        add: (a, b) => {
+            return a + b
+        },
+
+        subtract: (a, b) => {
+            return a - b
+        },
+
+        multiply: (a, b) => {
+            return a * b
+        },
+
+        divide: (a, b) => {
+            if (b === 0) {
+                return "Sorry, can't divide by zero."
+            } else {
+                return a / b
+            }
+        },
+
     }
 
 }
