@@ -1,0 +1,14 @@
+body {
+    background-color: antiquewhite;
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 300px;
+    border: solid;
+    padding: 5px;
+}
