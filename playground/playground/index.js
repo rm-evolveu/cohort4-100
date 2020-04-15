@@ -46,5 +46,16 @@ function calcFunction (event) {
 
 }
 
+// now the tax calculator
+taxButtonCalculate.addEventListener ("click", taxFunction )
+taxInput.addEventListener ("keyup", taxFunction )
 
+function taxFunction () {
 
+    console.log('tax function')
+
+    const result = playground.tax( Number(taxInput.value) )
+
+    taxOutput.textContent = result
+
+}
