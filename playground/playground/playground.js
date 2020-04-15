@@ -1,4 +1,4 @@
-import { taxRates, incomeBases } from './taxBrackets'
+import { taxRates, incomeBases } from './taxBrackets.js'
 
 const playground = {
 

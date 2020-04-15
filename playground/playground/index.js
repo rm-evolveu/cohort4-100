@@ -48,7 +48,7 @@ function calcFunction (event) {
 
 // now the tax calculator
 taxButtonCalculate.addEventListener ("click", taxFunction )
-taxInput.addEventListener ("keyup", taxFunction )
+taxInput.addEventListener ("input", taxFunction )
 
 function taxFunction () {
 
