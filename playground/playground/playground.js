@@ -1,3 +1,5 @@
+import { taxRates, incomeBases } from './taxBrackets'
+
 const playground = {
 
     greet: (greeting) => {
@@ -40,22 +42,26 @@ const playground = {
 
     tax (income) {
 
+        function centsRound (number) {
+            return Math.round ( number * 100 ) / 100
+        }
+
         function calculate (baseTax, rate, baseIncome, income) {
-            // console.log(baseTax, rate, baseIncome, income)
             const excessTax = (income - baseIncome) * rate
-            result = Math.round ( (baseTax + excessTax) * 100 ) / 100
+            result = centsRound (baseTax + excessTax)
             return result
         }
 
-        const taxRates =    [0.15,    0.205,    0.26,      0.29,     0.33]
-        const taxBases =    [0,     7280.25, 17229.72, 31114.76, 49644.31]
-        const incomeBases = [0,     48535,   97069,   150473,   214368, Infinity ]
+        const taxBases = []
+        taxBases [0] = 0
+        for (let i = 1; i < taxRates.length; i++ ) {
+            taxBases [i] = centsRound ( taxBases [i-1] + (incomeBases[i] - incomeBases[i-1]) * taxRates[i-1] )
+        }
 
         let result = 0
 
         if (income > 0) {
 
-            // bracket is the bracket to which the income belongs
             let bracket = incomeBases.findIndex (
                 function (element) {
                     return (income <= element)
