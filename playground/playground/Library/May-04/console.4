@@ -1,0 +1,53 @@
+let strangerThing = function (initialValue) {
+
+  let privateCounter = initialValue
+  let n = Math.round(Math.random()*100)
+  let counterUp = function () {
+    privateCounter = privateCounter + 1
+  }
+  let counterDown = function () {
+    privateCounter = privateCounter - 1
+  }
+  return { 
+    'counterUp': counterUp,
+    'counterDown': counterDown,
+    // get counter () { return privateCounter },
+    set counter (value) { 
+      if (! isNaN(Number(value))) 
+      { 
+        privateCounter = Number(value) 
+      }
+      console.log('privateCounter is now', privateCounter)
+    },
+    'id': n
+  }
+
+}
+
+let counter1 = strangerThing(10)
+let counter2 = strangerThing(50)
+
+console.log('Counter values:')
+console.log('Counter ' + counter1.id + ':', counter1.counter)
+console.log('Counter ' + counter2.id + ':', counter2.counter)
+
+counter2.counterUp()
+
+console.log('Counter values:')
+console.log('Counter ' + counter1.id + ':', counter1.counter)
+console.log('Counter ' + counter2.id + ':', counter2.counter)
+
+counter1.counterUp()
+counter2.counterDown()
+counter2.counterDown()
+
+console.log('Counter values:')
+console.log('Counter ' + counter1.id + ':', counter1.counter)
+console.log('Counter ' + counter2.id + ':', counter2.counter)
+
+counter1.counter = "nonsense"
+console.log('Counter ' + counter1.id + ':', counter1.counter)
+
+counter1.counterUp()
+console.log('Counter ' + counter1.id + ':', counter1.counter)
+

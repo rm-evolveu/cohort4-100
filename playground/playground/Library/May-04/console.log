@@ -1,0 +1,69 @@
+let song = [
+    {
+      'line': 'a partridge in a pear tree',
+      'dayNumber': function () { return 1 }},
+    { 
+      'line': 'two turtle doves',
+      'dayNumber': function () { return 2 }
+    },
+    {
+      'line': 'three French hens', 
+      'dayNumber': function () { return 3 }
+    },
+    {'line': 'four calling birds', 'dayNumber': function () { return 4 }},
+    {'line': 'five golden rings', 'dayNumber': function () { return 5 }},
+    {'line': 'six geese a-laying', 'dayNumber': function () { return 6 }},
+
+
+    {
+      'line': 'seven swans a-swimming', 
+      'dayNumber': function () { alert('Howdy'); return 'Hola amigo' }
+    },
+
+
+
+    {'line': 'eight maids a-milking', 'dayNumber': function () { return 8 }},
+    {'line': 'nine ladies dancing', 'dayNumber': function () { return 9 }},
+    {'line': 'ten lords a-leaping', 'dayNumber': function () { return 10 }},
+    {'line': 'eleven pipers piping', 'dayNumber': function () { return 11 }},
+    {
+      'line': 'twelve drummers drumming',
+      'dayNumber': function () { return 12 }
+    }
+]
+
+let f = function (line, song) {
+  let result = null
+  let myElement = song.find ( (element) => element.line === line)
+  if (myElement) {
+    result = myElement
+  }
+  return result
+}
+
+let g = function (song) {
+  return song.filter ( (element) => element.line.includes('e') ).map (
+    (element) => element.line
+  )
+}
+
+let h = function (song) {
+  return song.filter ( (element) => element.line.length % 2 === 0 ).map (
+    (element) => element.line
+  )
+}
+
+let findLetter = function (letter, song) {
+  return song.filter ( (element) => element.line.includes(letter) ).map (
+    (element) => element.line
+  )
+}
+
+let myLine = f('seven swans a-swimming', song)
+let myFunction = myLine.dayNumber
+let myResult = myFunction()
+console.log(myResult)
+
+
+
+

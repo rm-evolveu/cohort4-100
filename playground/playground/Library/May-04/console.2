@@ -1,0 +1,81 @@
+let song = [
+    {
+      'line': 'a partridge in a pear tree',
+      'dayNumber': function () { return 1 }},
+    { 
+      'line': 'two turtle doves',
+      'dayNumber': function () { return 2 }
+    },
+    {
+      'line': 'three French hens', 
+      'dayNumber': function () { return 3 }
+    },
+    {'line': 'four calling birds', 'dayNumber': function () { return 4 }},
+    {'line': 'five golden rings', 'dayNumber': function () { return 5 }},
+    {'line': 'six geese a-laying', 'dayNumber': function () { return 6 }},
+
+
+    {
+      'line': 'seven swans a-swimming', 
+      'dayNumber': function () { alert('Howdy'); return 'Hola amigo' }
+    },
+
+
+
+    {'line': 'eight maids a-milking', 'dayNumber': function () { return 8 }},
+    {'line': 'nine ladies dancing', 'dayNumber': function () { return 9 }},
+    {'line': 'ten lords a-leaping', 'dayNumber': function () { return 10 }},
+    {'line': 'eleven pipers piping', 'dayNumber': function () { return 11 }},
+    {
+      'line': 'twelve drummers drumming',
+      'dayNumber': function () { return 12 }
+    }
+]
+
+let a = function (song) {
+  return song.filter ( (element) => element.line.includes('a') ).map (
+    (element) => element.line
+  )
+}
+
+let b = function (song) {
+  return song.filter ( (element) => element.line.includes('b') ).map (
+    (element) => element.line
+  )
+}
+
+let c = function (song) {
+  return song.filter ( (element) => element.line.includes('c') ).map (
+    (element) => element.line
+  )
+}
+
+let myFunctions = [a,b,c]
+
+// console.log('Here are the lines we are interested in')
+
+// for (myFunction of myFunctions) {
+//   console.log (myFunction, myFunction(song))
+// }
+
+let strangeThing = function (letter, song) {
+
+  return function () {
+    return song.filter ( (element) => element.line.includes(letter) ).map (
+      (element) => element.line
+    )
+  }
+
+}
+
+// let x = strangeThing('a', song)
+// console.log('x is', x)
+// x()
+
+let myLettersOfInterest = ['a','b','c']
+let myFunctionsOfInterest = myLettersOfInterest.map ( letter => strangeThing(letter, song) )
+console.log('My functions of interest:', myFunctionsOfInterest)
+
+for (aFunction of myFunctionsOfInterest) {
+  console.log( aFunction() )
+}
